@@ -16,7 +16,7 @@ latest_commit=$(curl -s "https://api.github.com/repos/$username/$repo_name/commi
 # Compare the commit IDs
 if [ "$current_commit" != "$latest_commit" ]; then
     echo "A new commit detected!"
-    git pull
+#    git pull
     # You can add additional actions here if a new commit is detected
 else
     echo "No new commits."

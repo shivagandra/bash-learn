@@ -1,0 +1,14 @@
+Shell Scripting:
+
+variables and comments:
+
+- comments start with # 
+- variables are declared as "var_name", and to access values we use $var_name
+
+There are few specific restrictions on using some words as variables as they are used as system variables such as bash,bash_version,home,pwd,etc.
+
+Languages for scripting:
+1.bash
+2.python
+
+configuration files - yml,yaml

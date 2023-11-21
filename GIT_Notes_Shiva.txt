@@ -1,0 +1,66 @@
+What is branch?
+
+special copy of code base which allows us to work on various parts of the project and new features in an isolated environment.
+
+git branch - shows branches avaiabl in local repository
+git branch -a   -- shows branches available in remote repositories also.
+
+git branch <branch_name> -- create new branch
+git checkout <branch_name> -- switch to specific branch
+git checkout -b <branch_name> -- create new branch and switch to it
+
+git branch -d <branch_name> -- safe delete
+git branch -D <branch_name> -- force delete
+
+to rename current branch we use attribute -m
+
+git push <branch_name> branch~   -- to push copy of local branch to the remote repo
+
+to merge branch to main branch:
+git checkout main
+git merge <branch_name>
+
+to compare two branches 
+git diff <branch1> <branch2>
+
+to compare a single file from 2 branches
+git diff <branch1> <branch2> <file_name>
+
+
+Comparing based on commit id's:
+
+^ - one commit prior to current one
+HEAD~n - nth head prior to current commit
+
+What is tagging & Versioning?
+
+Tag:- reference to a point to specific points of git history.
+Versioning:- keeping track of all modifications to the repository to retrieve back to a specific point when needed.
+
+ git log -- Lists version history for the current branch
+
+
+We can pre-define the time, when we want to deploy the application.
+
+1. Use the deployment script: Many deployment scripts, such as Ansible or Terraform, allow you to specify the time and date for deployment. For example, you could use the `when` keyword in Ansible to specify the time and date when a task should run.
+//https://betterstack.com/community/questions/how-to-set-up-cron-job-for-specific-time-and-date/#at-4-00-on-every-day-of-month-from-8-through-14
+
+2. Use a cron job: If you're running the deployment script from a cron job, you can set the time and date for the cron job to run at a specific time. For example, you could set the cron job to run at 8am every day, or at 5pm on the first day of each month.
+3. Use a serverless function: If you're deploying an application using a serverless function, such as AWS Lambda or Google Cloud Functions, you can specify the time and date for deployment through the function configuration. For example, you could set the function to run at a specific time every day using the `schedule` keyword in the function configuration.
+
+
+
+Git Rebase: to integrate changes in one branch to another.
+Git Stash: to temporarily save changes 
+Git Cherry-pick: to select specific comments of one branch and apply them to another branch.
+
+If we have multiple stashes we can use the command git stash list to list them and git stash apply stash@{n} i.e, n is index of stash.
+
+
+
+
+
+
+
+
+

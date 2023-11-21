@@ -1,0 +1,30 @@
+why kubernetes?
+what makes kubernetes different from all other container management services?
+why it is better than using virtual machines?
+
+Kubernetes - open-source container management service to manage containarized workloads.
+
+why containers over VM's:
+
+Easy application creation and deployment
+Provides features to easy and frequent image build and rollbacks
+Unlike VM's, we can monitor application health metrics which helps us to maintain our application.
+We can run containers built on one platform on any other platform easily irrespective of the Operating System the machines is running.
+We can easily  deploy applications by breaking them down into smaller independent pieces which helps to identify and understand the errors easily.
+
+
+Kubernetes provides few features (Not available in VM's):
+1. Easy load balancing and service discovery - it can distribute traffic to containers based on the load that it recives from the users through the ip address or DNS.
+2. Easy storage orchestration
+3. Automated rollouts and rollbacks: we can describe the desired state we want so that kubernates takes care of transition of current state to desired state at a decenet rate which helps us in managing the load.
+4. Automatic bin packing - it manages the allocation of nodes to containers based on the resource requirements.
+5. Self healing - checking for status of containers based on the user defined health checks and if container fails to meet them, it does not show to the client and creates a new container and deploys the application along with data available on previous     container and then displays the new container to client and then removes the failed container.
+6. It helps us manage our secrets without rebuilding or without exposing the secrets.
+7. It helps in autoscaling just by a click and automatically by monitoring the CPU utilization.
+8. It provides dual stack features to understand data from both IPv4 and IPv6 based on the packets of data it recieve.
+
+Key points to be taken into consideration when using Kubernetes:
+1. It doesnt have inbuilt logging,monitorinh and alerting systems, but users can add these services as plugins.
+2. It can not directly deploy application using source code or build the application, it has to be taken care by the user.
+3. It doesnot provide application level services like middle-ware (message bus, etc), or data-processing frameworks or databases, which can be run on kubernetes through portable mechanisms like open service broker.
+	open service broker - It is an API service to provide backend services to workloads running on kubernetes or SaaS providers.

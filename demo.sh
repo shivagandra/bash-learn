@@ -1,21 +1,44 @@
 #!/bin/bash
-version=0
+git pull
+git diff --quiet
+if [ $? -eq 1 ]; then
+    git tag -a v1.0 -m "Version 1.0"
+fi
+git push origin master
 
-while true; do
-    git fetch
-    changes=$(git diff HEAD FETCH_HEAD)
 
-    if [ -n "$changes" ]; then
-        branch_name="version-$(version + 1)"
-        version=$((version + 1))
-        git branch $branch_name
-        git checkout $branch_name
-        git tag -a $branch_name -m "Auto-generated version at $(date)"
-        git push origin $branch_name
-    fi
+# while true; do
+#     git fetch
+#     changes=$(git diff HEAD FETCH_HEAD)
 
-    sleep 60
-done
+#     if [ -n "$changes" ]; then
+#         branch_name="version-$(date +%Y%m%d%H%M%S)"
+#         git branch $branch_name
+#         git checkout $branch_name
+#         git tag -a $branch_name -m "Auto-generated version at $(date)"
+#         git push origin $branch_name
+#     fi
+
+#     sleep 60
+# done
+# #!/bin/bash
+# version=0
+
+# while true; do
+#     git fetch
+#     changes=$(git diff HEAD FETCH_HEAD)
+
+#     if [ -n "$changes" ]; then
+#         branch_name="version-$(version + 1)"
+#         version=$((version + 1))
+#         git branch $branch_name
+#         git checkout $branch_name
+#         git tag -a $branch_name -m "Auto-generated version at $(date)"
+#         git push origin $branch_name
+#     fi
+
+#     sleep 60
+# done
 
 # #!/bin/bash
 

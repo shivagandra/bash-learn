@@ -1,0 +1,89 @@
+Docker:
+
+- makes it easy to build,deploy and manage containarized applications.
+
+Container - standalone pckage of software that contains all the required parts like code, runtime,libraries,etc.
+
+A container can bew run on any platform irrespective of the operating system.
+
+Docker provides few tools or services like docker images, docker hub,docker compose.
+
+Docker Images:- file used to execute code in a container
+Docker Hub:- public repository of various docker images
+Docker Compose:- Tool to run and manage multi-container application easily.
+
+to run a container we can use the command docker run -it mycontainer ubuntu
+
+-it is used to attach the image to a container
+
+docker start - to start a container
+docker attach - to attach a container to the existing running images.
+
+docker inspect - used to get detailed report of each container based on the container id, it also helps us in troubleshooting issues.
+
+docker status - to check status and resource utilization of the application.
+
+docker top - to view what are the services that are running in the container.
+
+docker save - to save the current docker image into a tar archive
+
+docker load - to load image into container from a tar archive
+
+
+Build and Deploy application on docker:
+
+Dockerfile - it is a file that is used to define the set of instructions to build a container.
+
+Dockerfile is the source to build a Docker container, where it contains all the requirements like image name and versiona dn security features,etc
+
+docker build is the command used to build a container using Dockerfile.
+
+docker build -t tag_name - to build a container and tag it with tag_name
+
+
+
+Docker Compose:
+
+A tool used to for defining and building multi-continer application.
+
+It uses YAML to describe all the requirements of application
+
+We can define all the options like networking,application services, and volumes in a singke file.
+
+It uses declarative syntax to define our application configurations like image to used,ports to expose, environment variables, and many more parts of the application.
+
+This in turn makes it easy to manage complex applications.
+
+YAML is used for configuration files as it is readable by both human and machine.
+
+We can link two or more containers which needs to be communicated to have better performance.
+
+to run the application we need to use the command "docker-compose up"
+
+to run the application in background "docker-compose up -d"
+
+to stop the application "docker-compose down"
+
+
+Docker Volume:
+
+Its a feature of docker to persist data sharing across containers where a single volume can be used by multiple containers.
+
+It helps us in eady management of data volumes and managing logs, databases and other persistent data.
+
+It allows us to have scalable data management in docker containers.
+
+Docker Network:
+
+It is the deature of docker to alow containers running on host machines to communicate with each other, that can be either on same host or multiple hosts.
+
+Docker network provides several types of network drivers like, bridge, host,overlay,Macvlan.
+
+Bridge - allows containers to communicte when they are on the same network
+Host - allows containers to communicate using the host network stack
+Overlay - enables communication between containers running on different platforms or hosts
+Macvlan - it provides each container a unique MAC address and makes them appear a independent physicak systems
+
+Docker Network supports network segmentation and isolation which allows us to create multiple networks and assign containers to specific networks.
+
+Docker Swarm -  group of physical or virtual machines running a group of docker containers that are joined to be in a cluster. Doesn't provide automated Scaling. 

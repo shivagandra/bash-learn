@@ -74,7 +74,7 @@ if [ $LOCAL != $REMOTE ]; then
     NEW_MAJOR_VERSION=$((MAJOR_VERSION + 1))
 
     # Construct the new version string
-    NEW_VERSION="${NEW_MAJOR_VERSION}.0"
+    NEW_VERSION="${NEW_MAJOR_VERSION}.0.${NEW_MAJOR_VERSION}"
 
     # Construct the new tag and branch names
     NEW_TAG_NAME="V${NEW_VERSION}"
@@ -94,7 +94,6 @@ if [ $LOCAL != $REMOTE ]; then
 
     # Create a new branch with the new branch name
     git branch $NEW_BRANCH_NAME
-    git checkout $NEW_BRANCH_NAME
 
     # Push the new tag and the new branch to the remote repository
     git push origin $NEW_TAG_NAME

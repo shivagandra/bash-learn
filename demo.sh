@@ -6,7 +6,7 @@ if [ $? -eq 1 ]; then
 fi
 git push origin main
 
-#this is to check
+# this is to check
 # while true; do
 #     git fetch
 #     changes=$(git diff HEAD FETCH_HEAD)

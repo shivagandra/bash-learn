@@ -11,6 +11,6 @@ old_commit_hash=$(git rev-parse origin/HEAD~1)
 new_commit_hash=$(git rev-parse origin/HEAD)
 
 if [ "$old_commit_hash" != "$new_commit_hash" ]; then
-    echo "New commit detected. Pulling changes..."
-    git pull
+    echo "New commit detected. "
+    #logic for building and packaging the code
 fi

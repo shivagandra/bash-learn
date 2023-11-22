@@ -65,11 +65,10 @@ if [ $LOCAL != $REMOTE ]; then
     git pull
 
     # Get the version number from the latest tag
-    VERSION=$(git describe --tags $(git rev-list --tags --max-count=1) | cut -c5-)
+    VERSION=$(git describe --tags $(git rev-list --tags --max-count=1))
 
-    # Extract the major and minor version numbers
+    # Extract the major version number
     MAJOR_VERSION=$(echo $VERSION | cut -d. -f1)
-    MINOR_VERSION=$(echo $VERSION | cut -d. -f2)
 
     # Increment the major version number
     NEW_MAJOR_VERSION=$((MAJOR_VERSION + 1))
@@ -80,6 +79,15 @@ if [ $LOCAL != $REMOTE ]; then
     # Construct the new tag and branch names
     NEW_TAG_NAME="V${NEW_VERSION}"
     NEW_BRANCH_NAME="V${NEW_VERSION}"
+
+    # Check if the tag or branch already exists
+    while [ $(git tag -l "$NEW_TAG_NAME") ] || [ $(git branch --list "$NEW_BRANCH_NAME") ]; do
+        # If they do, increment the version number
+        NEW_MAJOR_VERSION=$((NEW_MAJOR_VERSION + 1))
+        NEW_VERSION="${NEW_MAJOR_VERSION}.0"
+        NEW_TAG_NAME="V${NEW_VERSION}"
+        NEW_BRANCH_NAME="V${NEW_VERSION}"
+    done
 
     # Tag the new commit with the new tag name
     git tag $NEW_TAG_NAME

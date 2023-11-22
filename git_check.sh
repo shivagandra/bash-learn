@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#to check for changes in repository based on commit hash values
-
 # Fetch the latest information from the remote repository
 git fetch
 

@@ -11,3 +11,5 @@ git checkout -b "$new_branch"
 git push origin "$new_branch"
 
 echo "New branch $new_branch created based on tag $latest_tag"
+
+git checkout main

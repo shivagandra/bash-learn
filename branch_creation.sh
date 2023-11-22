@@ -89,7 +89,7 @@ if [ $LOCAL != $REMOTE ]; then
     git checkout $NEW_BRANCH_NAME
 
     # Push the new tag and the new branch to the remote repository
-    git push --tags
+    git push origin $NEW_TAG_NAME
     git push origin $NEW_BRANCH_NAME
 else
     echo "No new commits detected."

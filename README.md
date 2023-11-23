@@ -1,3 +1,3 @@
 # bash-learn
 
-## good to learn it
+## good to learn

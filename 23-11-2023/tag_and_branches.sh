@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Fetch the latest information from the remote repository
+git fetch
+
+# Check if there are any commits in the repository
+if [ -z "$(git log -1 2>/dev/null)" ]; then
+    echo "No commits found in the repository."
+    exit 1
+fi
+
+# Get the latest tag in the repository
+latest_tag=$(git describe --tags --abbrev=0 2>/dev/null)
+
+# If there are no tags, exit the script
+if [ -z "$latest_tag" ]; then
+    echo "No tags found in the repository."
+    exit 1
+fi
+
+# Get all branches except main
+branches=$(git branch | grep -v "main")
+
+# Create a new branch based on the latest tag or checkout if it already exists
+new_branch="branch_${latest_tag}"
+
+if [ -z "$branches" ]; then
+    # If there are no branches other than main, create a new branch
+    git checkout -b "$new_branch"
+else
+    # If there is an existing branch, checkout and reset it
+    git checkout "$new_branch"
+    git reset --hard "$latest_tag"
+fi
+
+# Push the updated branch to the remote repository with the -f option to force the push
+git push -f origin "$new_branch"
+
+echo "Branch $new_branch updated based on tag $latest_tag"
+
+git checkout main

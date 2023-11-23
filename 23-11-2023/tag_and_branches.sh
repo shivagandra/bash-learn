@@ -61,7 +61,8 @@ if [ -z "$latest_tag" ]; then
 fi
 
 # Create a new branch based on the latest tag or checkout if it already exists
-new_branch="branch_${latest_tag}"
+echo "New Bracnh Name: "
+read new_branch
 
 # Check if the branch exists
 if git show-ref --verify --quiet refs/heads/"$new_branch"; then

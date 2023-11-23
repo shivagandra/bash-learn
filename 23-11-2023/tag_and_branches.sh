@@ -61,7 +61,7 @@ if [ -z "$latest_tag" ]; then
 fi
 
 # Create a new branch based on the latest tag or checkout if it already exists
-echo "New Bracnh Name: "
+echo "New Branch Name: "
 read new_branch
 
 # Check if the branch exists
@@ -72,17 +72,21 @@ if git show-ref --verify --quiet refs/heads/"$new_branch"; then
 else
     # If the branch does not exist, create a new branch
     git checkout -b "$new_branch"
+    if [ $? -eq 0 ]; then
+        # Push the updated branch to the remote repository with the -f option to force the push
+        git push -f origin "$new_branch"
+
+        echo "Branch $new_branch updated based on tag $latest_tag"
+
+        # Delete the tag locally and in the remote repository
+        git tag -d "$latest_tag"
+        git push origin :refs/tags/"$latest_tag"
+
+        echo "Tag $latest_tag deleted"
+    else
+        echo "Failed to create branch - $new_branch"
+        exit 1
+    fi
 fi
-
-# Push the updated branch to the remote repository with the -f option to force the push
-git push -f origin "$new_branch"
-
-echo "Branch $new_branch updated based on tag $latest_tag"
-
-# Delete the tag locally and in the remote repository
-git tag -d "$latest_tag"
-git push origin :refs/tags/"$latest_tag"
-
-echo "Tag $latest_tag deleted"
 
 git checkout main

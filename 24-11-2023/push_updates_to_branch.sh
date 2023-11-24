@@ -10,4 +10,4 @@ git add .
 git commit -m "Branch for Deployment"
 
 # Push changes
-git push -u origin deploy
+git push origin HEAD~1:branch_name

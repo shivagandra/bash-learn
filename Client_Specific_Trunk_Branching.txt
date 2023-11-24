@@ -1,0 +1,20 @@
+Client-specific trunk branching
+
+
+Client-specific trunk branching typically refers to a version control system (VCS) or source code management practice where branches are created in the main development trunk specifically for individual clients. This approach is commonly used in software development to manage customizations or variations of a codebase for different clients or customers.
+
+Here's a general overview of how client-specific trunk branching might work:
+
+Main Development Trunk (or Master Branch): This is the primary line of development where the main codebase is maintained. It usually represents the latest stable version of the software.
+
+Client-Specific Branches: When a client requires customizations or specific features, a new branch is created from the main trunk. This branch is dedicated to that particular client and is used to develop and maintain code that is specific to their needs.
+
+Client-Specific Changes: Developers working on the client-specific branch can make changes, add features, or fix issues that are specific to that client's requirements. These changes are isolated from the main trunk until they are ready to be merged.
+
+Regular Merging: Periodically, changes from the main trunk are merged into the client-specific branches. This ensures that the client-specific codebase stays up-to-date with the latest developments in the main codebase.
+
+Client-Specific Releases: Once the client-specific branch is stable and tested, it can be merged back into the main trunk or released independently for that specific client. This allows for managing different versions of the software tailored to the needs of different clients.
+
+This branching strategy helps in maintaining a common codebase for multiple clients while accommodating client-specific customizations. It also allows for easier management of updates and bug fixes across different client versions.
+
+Version control systems like Git, Mercurial, or SVN provide tools and features to facilitate this branching strategy. Developers use commands like git branch, git merge, or equivalent commands in other systems to create, manage, and merge branches. Additionally, tools like feature flags or configuration settings may be employed to control the activation of client-specific features at runtime

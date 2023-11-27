@@ -1,0 +1,2 @@
+[all]ansible all -m ping
+ec2-user@ec2-18-61-89-27.ap-south-2.compute.amazonaws.com

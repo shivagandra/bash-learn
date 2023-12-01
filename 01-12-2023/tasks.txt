@@ -1,0 +1,2 @@
+1. Identify any application that follows similar types of deployment architecture.
+2. Study the architecture of that application and identify the components that are similar to your application.
